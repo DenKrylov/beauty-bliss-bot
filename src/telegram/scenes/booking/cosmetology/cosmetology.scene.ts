@@ -36,6 +36,11 @@ export class FacialCosmetologyScene {
     );
   }
 
+  @Hears('SMAS-лифтинг. Одна линия')
+  async onBookingServiceAnswer(@Ctx() ctx: SceneContext) {
+    await ctx.scene.enter('dateScene');
+  }
+
   @Hears('Назад')
   async onBackAnswer(@Ctx() ctx: SceneContext) {
     await ctx.scene.enter('bookingScene');
